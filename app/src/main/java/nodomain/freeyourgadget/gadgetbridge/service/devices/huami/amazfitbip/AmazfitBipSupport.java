@@ -62,6 +62,16 @@ public class AmazfitBipSupport extends HuamiSupport {
     }
 
     @Override
+    public byte getCryptFlags() {
+        if (gbDevice.getName().equalsIgnoreCase("Amazfit Bip Lite")) {
+            return (byte) 0x80;
+        }
+        else {
+            return 0x00;
+        }
+    }
+
+    @Override
     public NotificationStrategy getNotificationStrategy() {
         return new AmazfitBipTextNotificationStrategy(this);
     }
